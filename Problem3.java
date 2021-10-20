@@ -1,6 +1,6 @@
 package Java101;
 import java.util.*;
-public class User {
+public class User implements Comparator<User {
     public User() {
 
     }
@@ -12,7 +12,7 @@ public class User {
     }
 
     private int id;
-    public String name;
+    private String name;
     private String email;
 
     public String getEmail() {
@@ -39,6 +39,9 @@ public class User {
         this.name = name;
     }
     @Override
+    public int compareTo(User o){
+        return this.getName().compareTo(o.getName());
+    @Override
     public String toString() {
         return this.id +" ,"+ this.name + this.email;
     }
@@ -58,7 +61,7 @@ public class User {
         userList.add(user4);
         userList.add(user5);
 
-        Collections.sort(userList,new SortByName());
+        Collections.sort(userList);
 
         for(User uu:userList){
             System.out.println(uu);
@@ -68,10 +71,4 @@ public class User {
     }
 
 }
-class SortByName implements Comparator<User> {
 
-    public int compare(User a, User b)
-    {
-        return a.name.compareTo(b.name);
-    }
-}
